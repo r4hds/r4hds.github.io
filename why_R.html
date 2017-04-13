@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Why R?</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link rel="icon" type="image/png" href="icons/logo3.png">
+<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="css\styles.css" type="text/css" />
+<link rel="stylesheet" href="css\r4hds.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<style>
+  ul.pull-right {
+    margin-right: 4%;
+  }
+</style>
+<div class="fc">
+  <p class="full-name"><img src="icons/r-logo.jpg" alt="logo or R" style="max-width: 40px; margin-top: -20px;"> for Healthcare DataScience</p>
+</div>
+
+<div class="navbar navbar-default navbar-static-top affix-top fc" data-spy="affix" data-offset-top="105" role="navigation">
+  <div id="logo-bar">
+    <div class="navbar-header">
+            <!-- NOTE: add "navbar-inverse" class for an alternate navbar background -->
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a href="index.html"><img src="icons/logo_new2.png" alt="website logo" class="img-responsive pull-left" id="logo"></a>
+            <a class="navbar-brand" href="index.html">R4HDS</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav pull-right">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="about_r4hds.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            about us
+                <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <a href="about_r4hds.html">about R4HDS</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="meet_the_team.html">meet the team</a>
+            </li>
+            <li class="divider"></li>
+                       <!-- <li>
+                            <a href="page_c.html">Page C</a>
+                        </li> -->
+            </ul>
+          </li>
+          <li><a href="hifa.html">about HIFA</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                             maternal health
+                  <span class="caret"></span>
+            </a>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <a href="maternal_mortality.html">Trends in maternal mortality</a>
+            </li>
+          <!--  <li class="divider"></li>
+            <li>
+              <a href="page_b.html">Page B</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="page_c.html">Page C</a>
+            </li> -->
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            child health
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li>
+                <a href="child_mortality.html">MDG and child Mortality in Nigeria</a>
+              </li>
+             <!-- <li class="divider"></li>
+              <li>
+                <a href="page_b.html">Page B</a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="page_c.html">Page C</a>
+              </li> -->
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            blogs
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li>
+                <a href="why_R.html">Why R?</a>
+              </li>
+             <!-- <li class="divider"></li>
+              <li>
+                <a href="page_b.html">Page B</a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="page_c.html">Page C</a>
+              </li> -->
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+  </div>
+</div>
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Why R?</h1>
+<h4 class="date"><em>May 1, 2017</em></h4>
+
+</div>
+
+
+<style>
+
+#TOC {
+margin-top: 150px;
+}
+
+</style>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p><strong>Data science</strong> is the art of managing the process that can transform hypothesis and data into actionable predictions. This actionable predictions include predicting who will win an election, possible length of patient hospital stay, who is likely to suffer from a complication of a procedure or disease, or what will the population of a place be in the next few years. It is an interdisciplinary field of <strong>statistics</strong>, <strong>computer science</strong>, <strong>information technology</strong>, <strong>mathematics</strong> and other related fields (in social science, core science and applied science).</p>
+<p>Many statistical and graphing softwares exists to fulfill this purpose. Some have been in existence for about 50 years (e.g. SPSS). The more popular softwares include <a href="https://products.office.com/en-us/excel">Microsoft Excel</a>, <a href="http://www.ibm.com/software/products/en/spss-statistics">IBM SPSS</a>, <a href="https://www.cdc.gov/epiinfo">CDC Epi-Info</a>, <a href="https://www.sas.com">SAS</a>, <a href="http://www.stata.com">Stata</a>, <a href="http://www.minitab.com/en-US/products/minitab">minitab</a>, <a href="https://www.python.org">Python</a>, <a href="https://www.mathworks.com/products/matlab.html">MATLAB</a> and <a href="https://www.R-project.org/">R</a>. It is generally believed that a good data science software should be able to:</p>
+<ul>
+<li>allow for easy data import<br />
+</li>
+<li>easy data manipulation and transformation</li>
+<li>generate great and aesthetically pleasing graphs</li>
+<li>perform powerful data exploration and analysis</li>
+<li>support multiple data modelling and prediction methods</li>
+<li>allow for easy data communication between data scientists and the general audience.</li>
+</ul>
+</div>
+<div id="why-use-r" class="section level2">
+<h2>Why use R?</h2>
+<p><strong>R</strong> is a programming language for statistical computing developed by <a href="https://www.stat.aukland.ac.nz/~ihaka">Ross Ihaka</a> and <a href="https://en.wikipedia.org/wiki/Robert_Gentleman_(statistician)">Robert Gentlemen</a> about 25 years ago from the implementation of the <strong>S</strong> language. It is a more recent data science software compared to most of the other popular softwares.</p>
+<p>It meets all the criteria listed above and much more. Among the many reasons that has made it gained its popularity despite its relatively short existence include:</p>
+<div id="free-and-open-source" class="section level3">
+<h3>Free and Open-source</h3>
+<p>It is completely free and open-source!!! Many data scientists/analysts (especially in low and middle-income countries) will reckon with this statement. Imagine having to purchase a new version of a statistical software everytime it is realised, some of which cost a couple of hundred dollars or having to subscribe annually for using the software. It also runs on a wide array of platforms including <strong>Windows</strong>, <strong>Unix</strong>, <strong>Mac Os X</strong> and <strong>Ubuntu</strong>.</p>
+<p>By <strong>free</strong>, it means there is no cost implication incurred from using the software (apart from the cost of data for downloading the software of course), no subscription, no additional cost whatsoever!</p>
+<p>Its <strong>open source</strong> nature allows users access to the source code of the programme, understand it and possibly modify it to suit their purpose.</p>
+</div>
+<div id="graphic-capability" class="section level3">
+<h3>Graphic Capability</h3>
+<p>It has state of the art graphic capabilities allowing for static, dynamic and interactive data visualization. This is made possible by its integration with other programming languages including Javascript, leaflet and a whole lot of others for generating such graphs. This site will be capitalising on this to display some powerful and mind-blowing graphics made possible with R.</p>
+</div>
+<div id="data-exploration-inferencing-and-modelling" class="section level3">
+<h3>Data Exploration, Inferencing and Modelling</h3>
+<p>R’s ability for data exploration, inferencing and modelling is beyond this world. Being free and open-source, it is one of the favorite for many statistician for building their statistical packages for data analysis. This makes most statistical techniques available in R much earlier than in most of the other data science softwares.</p>
+</div>
+<div id="collaboration" class="section level3">
+<h3>Collaboration</h3>
+<p>Its nature allows for easy access by different data scientists. This means everyone can conduct their work using the same software. Also, it can seamlessly integrate with other data science software, easily importing and exporting data for use for the popular softwares. In essence, one can start a data science software in another project, save the data and continue in R and vice versa.</p>
+<p>IBM SPSS leveraged on its collaborative power by integrating its <strong>version 21</strong> with it. Microsoft is also leveraging on this by incorporating R into its products (including Microsoft R Open, Microsoft R client, and Microsoft R server).</p>
+</div>
+<div id="reproducible-research" class="section level3">
+<h3>Reproducible Research</h3>
+<p>At the core of data science (and indeed research) is “reproducibility”. In an ideal setting, the goal is “replicability”. However, due to time, financial constraints, most researches are not replicable. Even if time and constraints settings are not present, the research settings are almost always going to be different making replicability almost impossible or impractical. The next big thing is “reproducibility”. R completely supports reproducible research allowing for <strong>version control</strong> and a <strong>reproducible programming environment</strong>.</p>
+</div>
+<div id="communication-of-results" class="section level3">
+<h3>Communication of Results</h3>
+<p>It can easily generate reports in various formats including in Microsoft word, pdf, html and PowerPoint among others.This allows the R user to write only a single script and convert it to various output format as necessary.</p>
+</div>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>The choice of <strong>R</strong> stems from its powerful data science ability as well as its seamless integration with a whole lot of other computer packages. It is of interesting note that the WHO <a href="http://apps.who.int/iris/bitstream/10665/194254/1/9789241565141_eng.pdf">Trends in Maternal Mortality: 1990 to 2015</a> report was analysed with R. The abstract is available <a href="http://www.thelancet.com/journals/lancet/article/PIIS0140-6736%2815%2900838-7/abstract">here</a> and the full paper <a href="http://www.thelancet.com/pb/assets/raw/Lancet/pdfs/S0140673615008387.pdf">here</a></p>
+<p>The following articles will make interesting reads and will further drive home the choice of R:</p>
+<ol class="example" style="list-style-type: decimal">
+<li><p><a href="http://r4stats.com/articles/popularity/">The popularity of data science software</a></p></li>
+<li><p><a href="http://guides.nyu.edu/quant/statsoft">Quanititative analysis guide: which statistical software to use?</a></p></li>
+<li><p><a href="https://www.r-bloggers.com/uk-government-using-r-to-modernize-reporting-of-official-statistics/?utm_source=feedburner&amp;utm_medium=email&amp;utm_campaign=Feed%3A+RBloggers+%28R+bloggers%29">UK government using R to modernize the reporting of official statistics</a></p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/Comparison_of_statistical_packages">Comparison of statistical packages</a></p></li>
+</ol>
+</div>
+<div id="appendix" class="section level2 hidden toc-ignore">
+<h2>Appendix</h2>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>## R version 3.3.3 (2017-03-06)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 10 x64 (build 14393)
+## 
+## locale:
+## [1] LC_COLLATE=English_United States.1252 
+## [2] LC_CTYPE=English_United States.1252   
+## [3] LC_MONETARY=English_United States.1252
+## [4] LC_NUMERIC=C                          
+## [5] LC_TIME=English_United States.1252    
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## loaded via a namespace (and not attached):
+##  [1] backports_1.0.5 magrittr_1.5    rprojroot_1.2   tools_3.3.3    
+##  [5] htmltools_0.3.5 yaml_2.1.14     Rcpp_0.12.9     stringi_1.1.2  
+##  [9] rmarkdown_1.4   knitr_1.15.1    stringr_1.2.0   digest_0.6.12  
+## [13] evaluate_0.10</code></pre>
+</div>
+
+<style>
+  
+  .col-xs-4, 
+  .col-xs-8 {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  
+</style>
+
+
+
+
+<footer id="web-footer">
+    <div class="row fc">
+        <div class="col-sm-8 col-xs-8 copyright">&copy; 2017 R for Healthcare DataScience</div>
+        <div class="col-sm-4 col-xs-4 copyright">
+            <a href="https://twitter.com/r4hds" class="col-xs-3"><i class="fa fa-lg fa-twitter fa-inverse"></i></a>
+            <a href="https://facebook.com/r4hds" class="col-xs-3"><i class="fa fa-facebook fa-lg fa-inverse"></i></a>
+            <a href="mailto:r4healthcaredatascience@gmail.com" class="col-xs-3"><i class="fa fa-envelope fa-lg fa-inverse"></i></a>
+            <a href="#" class="col-xs-3"><i class="fa fa-linkedin fa-lg fa-inverse"></i> </a>
+        </div>
+    </div>
+</footer>
+<div id="disqus_thread" class="container-fluid"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//r-health-africa.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

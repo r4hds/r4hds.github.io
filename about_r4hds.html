@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>About R4HDS</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link rel="icon" type="image/png" href="icons/logo3.png">
+<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="css\styles.css" type="text/css" />
+<link rel="stylesheet" href="css\r4hds.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<style>
+  ul.pull-right {
+    margin-right: 4%;
+  }
+</style>
+<div class="fc">
+  <p class="full-name"><img src="icons/r-logo.jpg" alt="logo or R" style="max-width: 40px; margin-top: -20px;"> for Healthcare DataScience</p>
+</div>
+
+<div class="navbar navbar-default navbar-static-top affix-top fc" data-spy="affix" data-offset-top="105" role="navigation">
+  <div id="logo-bar">
+    <div class="navbar-header">
+            <!-- NOTE: add "navbar-inverse" class for an alternate navbar background -->
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a href="index.html"><img src="icons/logo_new2.png" alt="website logo" class="img-responsive pull-left" id="logo"></a>
+            <a class="navbar-brand" href="index.html">R4HDS</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav pull-right">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="about_r4hds.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            about us
+                <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <a href="about_r4hds.html">about R4HDS</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="meet_the_team.html">meet the team</a>
+            </li>
+            <li class="divider"></li>
+                       <!-- <li>
+                            <a href="page_c.html">Page C</a>
+                        </li> -->
+            </ul>
+          </li>
+          <li><a href="hifa.html">about HIFA</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                             maternal health
+                  <span class="caret"></span>
+            </a>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <a href="maternal_mortality.html">Trends in maternal mortality</a>
+            </li>
+          <!--  <li class="divider"></li>
+            <li>
+              <a href="page_b.html">Page B</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="page_c.html">Page C</a>
+            </li> -->
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            child health
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li>
+                <a href="child_mortality.html">MDG and child Mortality in Nigeria</a>
+              </li>
+             <!-- <li class="divider"></li>
+              <li>
+                <a href="page_b.html">Page B</a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="page_c.html">Page C</a>
+              </li> -->
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            blogs
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li>
+                <a href="why_R.html">Why R?</a>
+              </li>
+             <!-- <li class="divider"></li>
+              <li>
+                <a href="page_b.html">Page B</a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="page_c.html">Page C</a>
+              </li> -->
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+  </div>
+</div>
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">About R4HDS</h1>
+
+</div>
+
+
+<style>
+
+#TOC {
+margin-top: 150px;
+}
+
+</style>
+<blockquote>
+<p>“<i>To measure is to know. If you can not measure it, then you can not improve it</i>”</p>
+<p><small>Lord Kelvin</small></p>
+</blockquote>
+<p>R4HDS was born out of the desire to show the power of data in enlightening and transforming the health system especially in Africa. From the words of <strong>Lord Kelvin</strong>, you cannot improve what you do not understand. To understand, data has to be presented to demonstrate the magnitude of the problem.</p>
+<p>Two particular data revolutions in healthcare readily comes to mind, the report of the <a href="https://en.wikipedia.org/wiki/To_Err_is_Human_(report)">Institute of Medicine - <em>“to err is human”</em></a> which has transformed healthcare quality and patient safety since its release in 1999. Also is <a href="https://en.wikipedia.org/wiki/Hans_Rosling">Hans Rosling’s</a> works in promoting the use of data to explore development including the famous <a href="http://www.gapminder.org/videos/dont-panic-the-facts-about-population/"><em>“Dont’t Panic - the Truth about Population”</em></a>.</p>
+<div id="purpose" class="section level3">
+<h3>Purpose</h3>
+<p>The global world is striving towards a transparent system of free and open source data and application softwares. The powers of these two in speeding up the much desired change in the health sector cannot be over emphasized. To this end, the World Health Organization created the <a href="http://www.who.int/gho/en/">Global Health Observatory</a>, the World Bank developed the <a href="http://data.worldbank.org/data-catalog/world-development-indicators">World Development Indicators</a>, and the United Nations’ <a href="https://esa.un.org/unpd/wpp/">World Population Prospects 2015</a> data repositories. There also exists several other data repositories created by each country (especially in the developed world).</p>
+<p>This site uses open data from these sources to visually present results using graphs, inferences and modelling to the general public.</p>
+<blockquote>
+<p>“<i>A picture says more than a thousand words</i>”</p>
+</blockquote>
+<p>It will be interesting to be able to present local data from Nigeria and see how different regions compare. Though there exists the <a href="http://www.nigerianstat.gov.ng">National Bureau of Statistics</a> and the <a href="http://www.nigerianstat.gov.ng/nada/index.php/home">Nigeria National Data Archive</a> (not sure if many know about its existence), the team has not been able to access these databases despite request submissions.</p>
+</div>
+<div id="vision" class="section level3">
+<h3>Vision</h3>
+<blockquote>
+<p><em>“Every system is perfectly designed to achieve the results it gets”</em></p>
+<p><small>Edward Deming </small></p>
+</blockquote>
+<p>There is an urgent need for data revolution especially in Africa. Facebook announced recently of plans to build its <b>ninth</b> data plant. This further drives up the dire importance and urgency of data in this computationally advanced generation.</p>
+<p>Open data and data science will help in making significant contribution to the attainment of the <a href="https://sustainabledevelopment.un.org/">Sustainable Development Goals</a>. We are all involved in this at our respectful place of work. If we work together, we can make this dream come through for the sake of our future.</p>
+</div>
+<div id="acknowledgements" class="section level3">
+<h3>Acknowledgements</h3>
+<p>The authors are immersely grateful to the creators and maintainers of <b><a href="https://cran.r-project.org/">R</a></b>, <b><a href="https://www.rstudio.com">RStudio</a></b> IDE, and the numerous packages used in building this website. Special appreciation to:</p>
+<ol class="example" style="list-style-type: decimal">
+<li><p><a href="http://www.hadley.nz/">Hadley Wickham</a> of <strong>RStudio</strong></p></li>
+<li><p><a href="https://yihui.name/">Yuhui Xie</a> of <strong>RStudio</strong></p></li>
+<li><p><a href="https://cpsievert.github.io">Carson Sievert</a> of <strong>ropensci</strong></p></li>
+<li><p><a href="https://CRAN.R-project.org/package=WDI">Vincent Arel-Bundock</a></p></li>
+</ol>
+</div>
+
+<style>
+  
+  .col-xs-4, 
+  .col-xs-8 {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  
+</style>
+
+
+
+
+<footer id="web-footer">
+    <div class="row fc">
+        <div class="col-sm-8 col-xs-8 copyright">&copy; 2017 R for Healthcare DataScience</div>
+        <div class="col-sm-4 col-xs-4 copyright">
+            <a href="https://twitter.com/r4hds" class="col-xs-3"><i class="fa fa-lg fa-twitter fa-inverse"></i></a>
+            <a href="https://facebook.com/r4hds" class="col-xs-3"><i class="fa fa-facebook fa-lg fa-inverse"></i></a>
+            <a href="mailto:r4healthcaredatascience@gmail.com" class="col-xs-3"><i class="fa fa-envelope fa-lg fa-inverse"></i></a>
+            <a href="#" class="col-xs-3"><i class="fa fa-linkedin fa-lg fa-inverse"></i> </a>
+        </div>
+    </div>
+</footer>
+<div id="disqus_thread" class="container-fluid"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//r-health-africa.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

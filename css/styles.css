@@ -1,0 +1,109 @@
+body {
+    font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.72857143;
+    color: #333333;
+    background-color: #ffffff;
+    padding-top: 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.1;
+    color: inherit;
+}
+
+.copyright {
+    margin: 15px auto;
+    color: rgba(250, 250, 250, 1);
+    font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 640px) {
+    .copyright {
+        text-align: center;
+    }
+}
+
+@media (max-width: 640px) {
+  .col-xs-3,
+  .col-xs-6,
+  .col-sm-5,
+  .col-sm-7 {
+    padding-left: 0;
+        padding-right: 0;
+  }
+}
+
+
+@media (max-width: 760px) {
+    .pull-right {
+        float: none !important;
+    }
+}
+
+
+.container-fluid {
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+.main-container {
+margin-left: 0 !important;
+margin-right: 0 !important;
+padding-right: 0 !important;
+padding-left: 0 !important;
+max-width: 100vw !important;
+}
+
+.navbar {
+    margin-bottom: 0;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, .9);
+    /* box-shadow: 0 1px 2px #ccc; */
+}
+        
+.nav a:hover {
+  text-decoration: underline !important;
+  color: rgb(20, 100, 150) !important;
+}
+
+.nav a:active {
+    color: red !important;
+}
+
+.navbar-brand {
+  font-weight: 700;
+}
+
+#logo-bar {
+    margin: 0.5%;
+}
+
+#logo {
+    text-align: center;
+    width: 50px;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+#web-footer {
+    padding: 10px;
+    background-color: rgba(20, 100, 150, .8);
+}

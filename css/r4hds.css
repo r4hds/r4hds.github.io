@@ -1,0 +1,76 @@
+/* R for Healthcare DataScience CSS */
+
+.affix {
+    z-index: 1000;
+    right: 0px;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+}
+    
+.full-name {
+    text-align: center;
+    font-size: 40px;
+    padding-top: 1%;
+    color: #ccc;
+}
+
+
+html,
+body {
+  padding-bottom: 0 !important;
+}
+
+
+h1 {
+  font-weight: 500;
+  font-size: 120%;
+  text-align: center;
+  color: #555;
+}
+
+h2 {
+  color: rgb(83, 123, 183);
+  font-weight: 400;
+  
+}
+
+h3 {color: rgb(42, 131, 208);
+    font-weight: 300;
+}
+
+bold {
+  font-weight: 400;
+}
+
+.fc {
+      margin-right: 0px !important;
+      margin-left: 0px !important;
+  }
+  
+.r-logo {
+  margin-right: 10%;
+  margin-bottom: 25px;
+}
+
+.quotes {
+  clear: both;
+  margin-top: 2%;
+  min-height: 150px;
+}
+
+
+table {
+  border: 1px solid #ddd;
+  max-width: 75% !important;
+  margin: auto;
+}
+
+td {
+  line-height:  2 !important;
+  text-align: center !important;
+}
+
+th {
+  text-align: center !important;
+}
