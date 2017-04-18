@@ -393,8 +393,8 @@ margin-top: 150px;
 </style>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p><strong>Data science</strong> is the art of managing the process that can transform hypothesis and data into actionable predictions. This actionable predictions include predicting who will win an election, possible length of patient hospital stay, who is likely to suffer from a complication of a procedure or disease, or what will the population of a place be in the next few years. It is an interdisciplinary field of <strong>statistics</strong>, <strong>computer science</strong>, <strong>information technology</strong>, <strong>mathematics</strong> and other related fields (in social science, core science and applied science).</p>
-<p>Many statistical and graphing softwares exists to fulfill this purpose. Some have been in existence for about 50 years (e.g. SPSS). The more popular softwares include <a href="https://products.office.com/en-us/excel">Microsoft Excel</a>, <a href="http://www.ibm.com/software/products/en/spss-statistics">IBM SPSS</a>, <a href="https://www.cdc.gov/epiinfo">CDC Epi-Info</a>, <a href="https://www.sas.com">SAS</a>, <a href="http://www.stata.com">Stata</a>, <a href="http://www.minitab.com/en-US/products/minitab">minitab</a>, <a href="https://www.python.org">Python</a>, <a href="https://www.mathworks.com/products/matlab.html">MATLAB</a> and <a href="https://www.R-project.org/">R</a>. It is generally believed that a good data science software should be able to:</p>
+<p><strong>Data science</strong> is <em>the art of managing the process that can transform hypothesis and data into actionable predictions</em>. This actionable predictions include predicting who will win an election, possible length of hospital stay of patient, who is likely to suffer from a complication of a procedure or disease, or what will the population of a place be in the next few years. It is an interdisciplinary field of <strong>statistics</strong>, <strong>computer science</strong>, <strong>information technology</strong>, <strong>mathematics</strong> and other related fields (in social science, core science and applied science).</p>
+<p>Many statistical and graphing softwares exists to fulfill this purpose. Some have been in existence for about 50 years (e.g. SPSS). The more popular softwares include <a href="https://products.office.com/en-us/excel">Microsoft Excel</a>, <a href="http://www.ibm.com/software/products/en/spss-statistics">IBM SPSS</a>, <a href="https://cdc.gov/epiinfo">CDC Epi-Info</a>, <a href="https://sas.com">SAS</a>, <a href="http://www.stata.com">Stata</a>, <a href="http://www.minitab.com/en-US/products/minitab">minitab</a>, <a href="https://python.org">Python</a>, <a href="https://mathworks.com/products/matlab.html">MATLAB</a> and <a href="https://R-project.org/">R</a>. It is generally believed that a good data science software should be able to:</p>
 <ul>
 <li>allow for easy data import<br />
 </li>
@@ -407,7 +407,7 @@ margin-top: 150px;
 </div>
 <div id="why-use-r" class="section level2">
 <h2>Why use R?</h2>
-<p><strong>R</strong> is a programming language for statistical computing developed by <a href="https://www.stat.aukland.ac.nz/~ihaka">Ross Ihaka</a> and <a href="https://en.wikipedia.org/wiki/Robert_Gentleman_(statistician)">Robert Gentlemen</a> about 25 years ago from the implementation of the <strong>S</strong> language. It is a more recent data science software compared to most of the other popular softwares.</p>
+<p><strong>R</strong> is a programming language for statistical computing developed by <a href="https://stat.aukland.ac.nz/~ihaka">Ross Ihaka</a> and <a href="https://en.wikipedia.org/wiki/Robert_Gentleman_(statistician)">Robert Gentlemen</a> about 25 years ago from the implementation of the <strong>S</strong> language. It is a more recent data science software compared to most of the other popular softwares.</p>
 <p>It meets all the criteria listed above and much more. Among the many reasons that has made it gained its popularity despite its relatively short existence include:</p>
 <div id="free-and-open-source" class="section level3">
 <h3>Free and Open-source</h3>
@@ -444,7 +444,7 @@ margin-top: 150px;
 <ol class="example" style="list-style-type: decimal">
 <li><p><a href="http://r4stats.com/articles/popularity/">The popularity of data science software</a></p></li>
 <li><p><a href="http://guides.nyu.edu/quant/statsoft">Quanititative analysis guide: which statistical software to use?</a></p></li>
-<li><p><a href="https://www.r-bloggers.com/uk-government-using-r-to-modernize-reporting-of-official-statistics/?utm_source=feedburner&amp;utm_medium=email&amp;utm_campaign=Feed%3A+RBloggers+%28R+bloggers%29">UK government using R to modernize the reporting of official statistics</a></p></li>
+<li><p><a href="https://r-bloggers.com/uk-government-using-r-to-modernize-reporting-of-official-statistics/?utm_source=feedburner&amp;utm_medium=email&amp;utm_campaign=Feed%3A+RBloggers+%28R+bloggers%29">UK government using R to modernize the reporting of official statistics</a></p></li>
 <li><p><a href="https://en.wikipedia.org/wiki/Comparison_of_statistical_packages">Comparison of statistical packages</a></p></li>
 </ol>
 </div>
@@ -465,11 +465,39 @@ margin-top: 150px;
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
+## other attached packages:
+##  [1] modelr_0.1.0       broom_0.4.2        psych_1.7.3.21    
+##  [4] leaps_3.0          plotly_4.5.6.9000  ggrepel_0.6.5     
+##  [7] ggpmisc_0.2.14     GGally_1.3.0       ggExtra_0.6       
+## [10] ggfortify_0.4.1    forcats_0.2.0      car_2.1-4         
+## [13] lubridate_1.6.0    stringr_1.2.0      countrycode_0.19  
+## [16] wpp2015_1.1-0      WDI_2.4            RJSONIO_1.3-0     
+## [19] dplyr_0.5.0        purrr_0.2.2        readr_1.1.0       
+## [22] tidyr_0.6.1        tibble_1.3.0       tidyverse_1.1.1   
+## [25] magrittr_1.5       ggplot2_2.2.1.9000
+## 
 ## loaded via a namespace (and not attached):
-##  [1] backports_1.0.5 magrittr_1.5    rprojroot_1.2   tools_3.3.3    
-##  [5] htmltools_0.3.5 yaml_2.1.14     Rcpp_0.12.9     stringi_1.1.2  
-##  [9] rmarkdown_1.4   knitr_1.15.1    stringr_1.2.0   digest_0.6.12  
-## [13] evaluate_0.10</code></pre>
+##  [1] httr_1.2.1         jsonlite_1.4       viridisLite_0.2.0 
+##  [4] splines_3.3.3      shiny_1.0.1        assertthat_0.2.0  
+##  [7] highr_0.6          wrapr_0.1.2        yaml_2.1.14       
+## [10] backports_1.0.5    lattice_0.20-35    quantreg_5.33     
+## [13] digest_0.6.12      RColorBrewer_1.1-2 rvest_0.3.2       
+## [16] minqa_1.2.4        colorspace_1.3-2   htmltools_0.3.5   
+## [19] httpuv_1.3.3       Matrix_1.2-8       plyr_1.8.4        
+## [22] SparseM_1.76       haven_1.0.0        xtable_1.8-2      
+## [25] scales_0.4.1       lme4_1.1-12        MatrixModels_0.4-1
+## [28] mgcv_1.8-17        nnet_7.3-12        lazyeval_0.2.0    
+## [31] pbkrtest_0.4-7     mnormt_1.5-5       readxl_0.1.1      
+## [34] mime_0.5           evaluate_0.10      nlme_3.1-131      
+## [37] MASS_7.3-45        xml2_1.1.1         foreign_0.8-67    
+## [40] colourpicker_0.3   tools_3.3.3        hms_0.3           
+## [43] munsell_0.4.3      grid_3.3.3         nloptr_1.0.4      
+## [46] htmlwidgets_0.8    crosstalk_1.0.0    miniUI_0.1.1      
+## [49] base64enc_0.1-3    labeling_0.3       rmarkdown_1.4     
+## [52] gtable_0.2.0       reshape_0.8.6      DBI_0.6-1         
+## [55] reshape2_1.4.2     R6_2.2.0           gridExtra_2.2.1   
+## [58] knitr_1.15.1       rprojroot_1.2      stringi_1.1.5     
+## [61] parallel_3.3.3     Rcpp_0.12.10</code></pre>
 </div>
 
 <style>
@@ -489,10 +517,9 @@ margin-top: 150px;
     <div class="row fc">
         <div class="col-sm-8 col-xs-8 copyright">&copy; 2017 R for Healthcare DataScience</div>
         <div class="col-sm-4 col-xs-4 copyright">
-            <a href="https://twitter.com/r4hds" class="col-xs-3"><i class="fa fa-lg fa-twitter fa-inverse"></i></a>
-            <a href="https://facebook.com/r4hds" class="col-xs-3"><i class="fa fa-facebook fa-lg fa-inverse"></i></a>
-            <a href="mailto:r4healthcaredatascience@gmail.com" class="col-xs-3"><i class="fa fa-envelope fa-lg fa-inverse"></i></a>
-            <a href="#" class="col-xs-3"><i class="fa fa-linkedin fa-lg fa-inverse"></i> </a>
+            <a href="https://twitter.com/r4hds" class="col-xs-4"><i class="fa fa-lg fa-twitter fa-inverse"></i></a>
+            <a href="https://facebook.com/r4hds" class="col-xs-4"><i class="fa fa-facebook fa-lg fa-inverse"></i></a>
+            <a href="mailto:r4healthcaredatascience@gmail.com" class="col-xs-4"><i class="fa fa-envelope fa-lg fa-inverse"></i></a>
         </div>
     </div>
 </footer>
