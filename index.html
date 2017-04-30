@@ -287,6 +287,11 @@ $(document).ready(function () {
 
 <body>
 <style>
+
+.about-us {
+height: 470px;
+}
+
 .title {
 display: none;
 }
@@ -366,14 +371,37 @@ article a:active {
 }
 
 </style>
-<div id="home-bar">
-<img class="img-responsive center-block" src="./icons/lord-kelvin2.png" alt="Lord Kelvin" title="Lord Kelvin" style="max-width: 250px;">
+<div id="carousel-id" class="carousel slide" data-ride="carousel">
+<ol class="carousel-indicators">
+<li data-target="#carousel-id" data-slide-to="0" class="active">
+</li>
+<li data-target="#carousel-id" data-slide-to="1" class>
+</li>
+<li data-target="#carousel-id" data-slide-to="2" class>
+</li>
+<li data-target="#carousel-id" data-slide-to="3" class>
+</li>
+</ol>
+<div class="carousel-inner">
+<div id="home-bar" class="item active">
+<img class="img-responsive center-block about-us" src="./icons/lord-kelvin2.png" alt="Lord Kelvin" title="Lord Kelvin" style="max-width: 250px;">
 <p>
 “If you cannot measure it, then you do not understand it”
 </p>
 <p>
 <i>… Changing the world of healthcare quality using open data and reproducible data science</i>
 </p>
+</div>
+<div class="item">
+<p><img class="img_responsive center-block about-us" src="./icons/about_us.jpg" alt="our inspiration"></p>
+</div>
+<div class="item">
+<p><img class="img_responsive center-block about-us" src="./icons/about_us2.jpg" alt="our vision"></p>
+</div>
+<div class="item">
+<p><img class="img_responsive center-block about-us" src="./icons/about_us3.jpg" alt="our mission"></p>
+</div>
+</div>
 </div>
 <article>
 <div class="row fc">
