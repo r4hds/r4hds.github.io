@@ -35,9 +35,19 @@ h2 {
   
 }
 
-h3 {color: rgb(42, 131, 208);
+h3 {
+  color: rgb(42, 131, 208);
     font-weight: 300;
 }
+
+
+h4 {
+  color: rgb(42, 131, 228);
+  font-style: italic;
+  font-weight: 600;
+  
+}
+
 
 bold {
   font-weight: 400;
