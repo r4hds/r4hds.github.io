@@ -1,0 +1,175 @@
+---
+title: "Welcome to R4HDS"
+output: 
+  html_document: 
+    include:
+      in_header: _icon.html
+      after_body: 
+        - _footer.html
+        - _nodisqus.html
+---
+
+<body>
+
+<style>
+
+.about-us {
+height: 478px;
+}
+
+.title {
+display: none;
+}
+
+.fc-items {
+      min-height: 80vh;
+}
+  
+.col-md-4 {
+      margin-top: 5%;
+}
+  
+article a {
+  color: dimgray;
+  text-shadow: 2px 1px 5px dimgray;
+}
+    
+article a:hover {
+    font-size: 110%;
+    color: cornflowerblue;
+    text-decoration: none;
+}
+
+article a:active {
+    color: red;
+    text-decoration: underline;
+}
+
+#mh {
+  background-image: url(./icons/woman2.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#ch {
+  background-image: url(./icons/baby22.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+    
+#blogs {
+  background-image: url(./icons/blog.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+  
+#home-bar {
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+  background-color: rgb(107, 163, 206);
+}
+    
+#home-bar p {
+  font-size: 2rem;
+  color: whitesmoke;
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  text-align: center;
+}
+
+#put-science {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  background-color: #eee;
+}
+
+#put-science p {
+  text-align: right;
+  margin-right: 10%;
+  font-size: 1.8rem;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: white;
+  text-shadow: 1px 1px 5px dimgray;
+}
+
+.padding {
+  padding-top: 10%;
+}
+
+</style>
+
+<div id="carousel-id" class="carousel slide" data-ride="carousel">
+
+<ol class="carousel-indicators">
+  <li data-target="#carousel-id" data-slide-to="0" class="active"></li>
+  <li data-target="#carousel-id" data-slide-to="1" class=""></li>
+  <li data-target="#carousel-id" data-slide-to="2" class=""></li>
+  <li data-target="#carousel-id" data-slide-to="3" class=""></li>
+
+</ol>
+                
+<div class="carousel-inner">
+                    
+<div class="item active" id="home-bar">
+  <img class="img-responsive center-block about-us" src="./icons/lord-kelvin2.png" alt="Lord Kelvin" title="Lord Kelvin" style="max-width: 250px;">
+  <p>“If you cannot measure it, then you do not understand it”</p>
+  <p><i>… Changing the world of healthcare quality using open data and reproducible data science</i></p>
+</div>
+                    
+<div class="item">
+  <img class="img_responsive center-block about-us" src="./icons/about_us.jpg" alt="our inspiration">
+</div>
+              
+<div class="item">
+  <img class="img_responsive center-block about-us" src="./icons/about_us2.jpg" alt="our vision">
+</div>
+                    
+<div class="item">
+  <img class="img_responsive center-block about-us" src="./icons/about_us3.jpg" alt="our mission">
+</div>
+                
+</div>
+            
+</div>
+
+<article>
+<div class="row fc">
+
+<div class="col-md-4 fc-items padding" id="mh">
+  <li><a href="maternal_mortality.html">
+    trends in maternal mortality in Nigeria: Impact of the MDG
+  </a></li>
+  <li><a href="contraceptive_prevalence.html">
+  effects of contraceptive prevalence on maternal and child health
+  </a></li>
+</div>
+
+<div class="col-md-4 fc-items padding" id="ch">
+  <li><a href="child_mortality.html">
+    MDG and child mortality in Nigeria
+  </a></li>
+</div>
+
+<div class="col-md-4 fc-items padding" id="blogs">
+  <li><a href="why_R.html">
+    Why R?
+  </a></li>
+  
+  <li><a href="covid19.html">
+    Explore COVID-19 with R
+  </a></li>
+  
+  <li><a href="hiv_epidemic1.html">
+    HIV Epidemic: Gains and Challenges (PART I)
+  </a></li>
+  
+  <li><a href="hiv_epidemic1.html">
+    HIV Epidemic: Gains and Challenges (PART I)
+  </a></li>
+</div>
+</div>
+</article>
+
+
+<div id="put-science">
+  <p>... put some <i>science</i> on that data!!!!</p>
+</div>

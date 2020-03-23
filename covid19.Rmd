@@ -1,0 +1,117 @@
+---
+title: "Explore COVID-19 Pandemic with R"
+date: "March 23, 2020"
+output: 
+  html_document: 
+    fig_height: 4
+    fig_width: 6
+    include:
+      in_header: _icon.html
+    toc: yes
+    toc_float: yes
+---
+
+
+```{r include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = NA, tidy = FALSE, echo = F)
+source("./covid19.R")
+```
+
+## Introduction 
+
+The world has done several analysis on the current novel coronavirus disease (COVID-19) pandemic. The bulk of the analysis has been focused on developed and high-income countries. This is a brief analysis of the current trend in Africa. I will be updating the charts daily till the pandemic is contained, hopefully this will happen soon.   
+
+
+It is no longer news that covid-19 has witnessed exponential growth since the beginning of March spreading from **`r nrow(n_count)`** countries at the end of February 2020 to **`r nrow(n_count2)`** as at 22nd March 2020. The number of of confirmed cases have also grown astronimically from *86, 000* to over *300, 000* during the same period of time. We briefly look at this global trend and compare this with the current trend seen in Africa. The trend in Africa is much similar to the global trend, except for some time lag in the onset of rise with less than 5 confirmed cases at the beginning March to over 1,400 confirmed cases within a period of 3 weeks.   
+
+
+Witness sharp rise in the number of confirmed cases from about the 12th of March till date, and a corresponding increase in the number of countries affected by COVID-19.
+
+### Data Source:
+
+The data for this analysis is sourced directly from the [**John Hopkins University Centre for Sytems Science and Engineering (JHU CSSE)**](https://github.com/CSSEGISandData/COVID-19/) website. Data is updated daily so the analysis for the day will reflect update up to the previous day.  
+
+
+## Trend  {.tabset .tabset-fade .tabset-pills}
+
+
+### Globe
+
+```{r}
+ggplotly(global_trend)
+```
+
+
+### Africa
+
+
+```{r}
+ggplotly(africa_trend)
+```
+
+## Spread across countries
+
+```{r}
+ggplotly(n_countries)
+```
+
+
+
+## Country-specific Trends {.tabset .tabset-fade .tabset-pills}
+
+It is no longer news that China, being the country where the first case was discovered experienced the pandemic much early and appear to have been able to contain the disease. The other country that has done remarkably well in containment appears to be South Korea. The country was able to flattening the curve early, something most other countries experiencing exponential growth have not been able to do.  
+
+The `Top 10 Countries` plot shows the trend across the top most hit countries excluding China and Italy to allow for better appreciation of the trend in these countries.  
+
+
+### Globe
+
+```{r}
+ggplotly(world)
+```
+
+
+### Top 10 countries
+
+
+
+```{r}
+ggplotly(world2_plot)
+```
+
+
+
+### Africa
+
+
+```{r}
+
+ggplotly(africa2_plot)
+
+```
+
+
+```{r}
+
+ggplotly(world2_plot)
+
+```
+
+
+
+## Nigeria
+
+Nigeria recorded its first case of covid-19 on the 28th of February 2020 and did not have a second case till a week after (on the 9th of March 2020). However, within the space of another 8 days, the number of cases jumped from **2** (on the 16th of March 2020 to **30** cases by 22nd March 2020). Giving similar trend patterns experienced by many countries currently experiencing the pandemic on a large scale, there is the need to ensure that all hands are on deck to _flattening_ this curve as soon as possible. The good news is that this can be done, countries like South Korea has proven this to us. There is therefore the need for **ALL** Nigerians to support the people who have been saddled with this responsibility. Let us all ensure we follow the safety guidelines provided by [**NCDC**](http://covid19.ncdc.gov.ng/faq.html#about), [**WHO**](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public), [**CDC**](https://www.cdc.gov/coronavirus/2019-ncov/index.html), and other reputable sites for more information.  
+
+
+```{r}
+
+ggplotly(ngr)
+
+```
+
+
+## Conclusion
+
+The world has demonstrated that panic and fear only fuels the pandemic, there is a need for us to continue to be rational and observe the safety measures advised. In so doing, we will not only be protecting ourselves, but also our families and loved ones, and the general community. This in turn will help faster resolution of the pandemic and return to global *baseline*.
+
